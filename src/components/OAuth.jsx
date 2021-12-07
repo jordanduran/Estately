@@ -28,9 +28,9 @@ const OAuth = () => {
           timestamp: serverTimestamp(),
         });
       }
-      navigate('/')
+      navigate('/');
     } catch (error) {
-      toast.error('Could not authorize with your Google account at this time')
+      toast.error('Could not authorize with your Google account at this time');
     }
   };
 
