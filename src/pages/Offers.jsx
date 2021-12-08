@@ -79,9 +79,7 @@ const Offers = () => {
           </main>
         </>
       ) : (
-        <p>
-          There are currently no offers available
-        </p>
+        <p>There are currently no offers available</p>
       )}
     </div>
   );
