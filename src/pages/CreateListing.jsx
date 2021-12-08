@@ -160,7 +160,7 @@ function CreateListing() {
       [...images].map((image) => storeImage(image))
     ).catch(() => {
       setLoading(false);
-      toast.error('Images not uploaded');
+      toast.error('Sorry, the images could not be uploaded');
       return;
     });
 
