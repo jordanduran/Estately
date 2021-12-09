@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 import Spinner from '../components/Spinner';
 
-function CreateListing() {
+const CreateListing = () => {
   // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -96,6 +96,7 @@ function CreateListing() {
       );
 
       const data = await response.json();
+      console.log(data);
 
       geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
       geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
@@ -449,6 +450,6 @@ function CreateListing() {
       </main>
     </div>
   );
-}
+};
 
 export default CreateListing;
