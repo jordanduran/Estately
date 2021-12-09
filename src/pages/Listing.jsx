@@ -41,7 +41,7 @@ const Listing = () => {
 
   return (
     <main>
-      <Swiper slidesperView={1} pagination={{ clickable: true }}>
+      <Swiper slidesPerView={1} pagination={{ clickable: true }}>
         {listing.imgUrls.map((url, index) => (
           <SwiperSlide key={index}>
             <div
