@@ -20,7 +20,7 @@ const Slider = () => {
       const q = query(listingsRef, orderBy('timestamp', 'desc'), limit(5));
       const querySnap = await getDocs(q);
 
-      const listings = [];
+      let listings = [];
 
       querySnap.forEach((doc) => {
         return listings.push({
@@ -28,6 +28,7 @@ const Slider = () => {
           data: doc.data(),
         });
       });
+
       setListings(listings);
       setLoading(false);
     };
@@ -55,22 +56,16 @@ const Slider = () => {
               onClick={() => navigate(`/category/${data.type}/${id}`)}
             >
               <div
-                className='swiperSlideDiv'
                 style={{
                   background: `url(${data.imgUrls[0]}) center no-repeat`,
                   backgroundSize: 'cover',
                 }}
+                className='swiperSlideDiv'
               >
                 <p className='swiperSlideText'>{data.name}</p>
                 <p className='swiperSlidePrice'>
-                  $
-                  {data.discountedPrice
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',') ??
-                    data.regularPrice
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  {data.type === 'rent' && ' / month'}
+                  ${data.discountedPrice ?? data.regularPrice}{' '}
+                  {data.type === 'rent' && '/ month'}
                 </p>
               </div>
             </SwiperSlide>

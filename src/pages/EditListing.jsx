@@ -58,7 +58,7 @@ const EditListing = () => {
   // Redirect if listing is not user's
   useEffect(() => {
     if (listing && listing.userRef !== auth.currentUser.uid) {
-      toast.error('You may not edit this listing');
+      toast.error('You can not edit that listing');
       navigate('/');
     }
   });
@@ -69,9 +69,8 @@ const EditListing = () => {
     const fetchListing = async () => {
       const docRef = doc(db, 'listings', params.listingId);
       const docSnap = await getDoc(docRef);
-
       if (docSnap.exists()) {
-        setListing(docSnap);
+        setListing(docSnap.data());
         setFormData({ ...docSnap.data(), address: docSnap.data().location });
         setLoading(false);
       } else {
@@ -191,7 +190,7 @@ const EditListing = () => {
       [...images].map((image) => storeImage(image))
     ).catch(() => {
       setLoading(false);
-      toast.error('Sorry, the images could not be uploaded');
+      toast.error('Images not uploaded');
       return;
     });
 
