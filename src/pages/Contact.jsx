@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 const Contact = () => {
   const [message, setMessage] = useState('');
   const [landlord, setLandlord] = useState(null);
+  // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
 
   const params = useParams();
@@ -19,9 +20,9 @@ const Contact = () => {
       if (docSnap.exists()) {
         setLandlord(docSnap.data());
       } else {
-        // toast.error(
-        //   `Unfortunately could not get the landlord's data at the moment`
-        // );
+        toast.error(
+          `Unfortunately could not get the landlord's data at the moment`
+        );
       }
     };
 
