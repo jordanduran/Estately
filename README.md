@@ -6,4 +6,4 @@ A marketplace for homes built with React and Firebase.
 [Live Link to App](https://estately.vercel.app/) <br />  
 
 ## Tech / Tools
-React, CSS, Firebase & deployed with Vercel.
+React, CSS, LeafletJS, Swiper, Toastify, Google Geocoding API, Firebase & deployed with Vercel.
