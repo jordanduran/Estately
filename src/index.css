@@ -7,6 +7,10 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+main {
+  min-height: 100vh;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #f2f4f8;
